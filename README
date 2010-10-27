@@ -1,0 +1,1 @@
+bashi is an attempt to create a bash “framework” for executing a bash script. It tries to use separate config file for each script, with each config file contains block and the ability to use “default” block.
