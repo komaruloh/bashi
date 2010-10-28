@@ -1,1 +1,12 @@
 bashi is an attempt to create a bash “framework” for executing a bash script. It tries to use separate config file for each script, with each config file contains block and the ability to use “default” block.
+
+TODO :  1. Improving the flow of the framework. The script is called via
+            parameter/argument to the main script, instead of listed in
+            main.config.
+        2. Adding logging and the abilities to resume canceled script 
+            scheduled for running due to external major factor (i.e. 
+            power down).
+        3. Adding the ftp script to transfer processed files to remote
+            location.
+        4. Adding the notification abilities (via email) for predefined
+            events.

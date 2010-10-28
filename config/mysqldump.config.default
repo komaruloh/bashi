@@ -23,10 +23,10 @@ default {
     MYSQLDUMP="mysqldump"
     MYSQLDUMP_OPTIONS=" -R --single-transaction "
     TABLES=()
-    # days we keep the backup 
+    # days we keep the backup
     KEEPSAKE_DAYS=$(date --date='1 month ago' +%Y%m%d)
-    REMOVE_OLD_DUMP=1       # Removes files older than $KEEPSAKE_DAYS
-                            # Right now also serves as clearing compressed 
+    REMOVE_OLD_DUMP=1 # Removes files older than $KEEPSAKE_DAYS
+                            # Right now also serves as clearing compressed
                             # old files.
     
     # compressing option
@@ -39,7 +39,7 @@ default {
     # ------------------------------------------------------------------
     # WARNING !!!!
     # Config below must be overide in each tag to provide valid value
-    # 
+    #
     DUMP_FILENAME_PREFIX="$DB_HOST$FILENAME_SEPARATOR"`date +%Y%m%d`
     DUMP_FILENAME_SUFIX=".sql"
     DUMP_FILENAME="$DUMP_FILENAME_PREFIX$FILENAME_SEPARATOR$DB_NAME$DUMP_FILENAME_SUFIX"
