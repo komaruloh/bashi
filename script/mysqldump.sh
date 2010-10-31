@@ -27,7 +27,7 @@ function execute () {
 function dump_database() {
     DUMPED_TABLES=${TABLES[@]}
     COMMAND="$MYSQLDUMP $MYSQLDUMP_OPTIONS -u $DB_USERNAME --password=$DB_PASSWORD -h $DB_HOST $DB_NAME $DUMPED_TABLES"
-    #eval "$COMMAND > $DUMP_FILENAME_FULL"
+    eval "$COMMAND > $DUMP_FILENAME_FULL"
     
     compress_dump
     clearing_old_backup
@@ -50,7 +50,7 @@ function compress_dump() {
 
             if [ $BACKGROUND_COMPRESS = 1 ]
                 then
-                   COMPRESS_COMMAND="$COMPRESS_COMMAND &"
+                   COMPRESS_COMMAND="$COMPRESS_COMMAND "
             fi
             
             eval "$COMPRESS_COMMAND"
@@ -64,7 +64,7 @@ function clearing_dump() {
     if [ $REMOVE_DUMP_FILE = 1 ]
         then
             # only remove dump when compressed file is exist
-            if [ -e $DUMP_FILENAME_FULL && ]
+            if [[ -e $DUMP_FILENAME_FULL && -e "$COMPRESSED_FILENAME_FULL.$COMPRESSED_FORMAT" ]]
                 then
                     REMOVE_COMMAND="rm -rf $DUMP_FILENAME_FULL"
                     eval "$REMOVE_COMMAND"
