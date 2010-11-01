@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 # directories
+cd `dirname $0`
 BASE_DIRECTORY=`pwd`/
 CONFIG_DIRECTORY=${BASE_DIRECTORY}config/
 LIB_DIRECTORY=${BASE_DIRECTORY}lib/
